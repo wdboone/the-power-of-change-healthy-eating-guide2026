@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Power of Change - Health Journey 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f4f8;
+            min-height: 100vh;
+            color: #2d3748;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2d7738 0%, #4caf50 50%, #66bb6a 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .hero .goal {
+            background: rgba(255,255,255,0.25);
+            padding: 18px 35px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 25px;
+            font-size: 1.15em;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: -50px auto 60px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .welcome-card {
+            background: white;
+            border-radius: 24px;
+            padding: 50px 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .welcome-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: #2d7738;
+            font-size: 2.4em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .welcome-card p {
+            color: #4a5568;
+            font-size: 1.15em;
+            line-height: 1.9;
+            max-width: 850px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .health-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .health-card:nth-child(1) { animation-delay: 0.1s; }
+        .health-card:nth-child(2) { animation-delay: 0.15s; }
+        .health-card:nth-child(3) { animation-delay: 0.2s; }
+        .health-card:nth-child(4) { animation-delay: 0.25s; }
+        .health-card:nth-child(5) { animation-delay: 0.3s; }
+        .health-card:nth-child(6) { animation-delay: 0.35s; }
+        .health-card:nth-child(7) { animation-delay: 0.4s; }
+        .health-card:nth-child(8) { animation-delay: 0.45s; }
+        .health-card:nth-child(9) { animation-delay: 0.5s; }
+
+        .health-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            padding: 35px 28px;
+            background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+            color: white;
+            position: relative;
+        }
+
+        .card-icon {
+            font-size: 3.5em;
+            margin-bottom: 12px;
+            display: block;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .card-header h3 {
+            font-size: 1.6em;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .card-header p {
+            font-size: 1em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .card-body {
+            padding: 28px;
+        }
+
+        .card-body p {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .card-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #2d7738 0%, #4caf50 100%);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 4px 15px rgba(76,175,80,0.3);
+        }
+
+        .card-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(76,175,80,0.4);
+        }
+
+        .card-spiritual .card-header { background: linear-gradient(135deg, #ff9800 0%, #ffb74d 100%); }
+        .card-goals .card-header { background: linear-gradient(135deg, #2196f3 0%, #42a5f5 100%); }
+        .card-food .card-header { background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%); }
+        .card-shopping .card-header { background: linear-gradient(135deg, #9c27b0 0%, #ba68c8 100%); }
+        .card-recipes .card-header { background: linear-gradient(135deg, #f44336 0%, #e57373 100%); }
+        .card-meal-plan .card-header { background: linear-gradient(135deg, #00bcd4 0%, #4dd0e1 100%); }
+        .card-avoid .card-header { background: linear-gradient(135deg, #ff5722 0%, #ff7043 100%); }
+        .card-exercise .card-header { background: linear-gradient(135deg, #3f51b5 0%, #5c6bc0 100%); }
+        .card-journey .card-header { background: linear-gradient(135deg, #e91e63 0%, #ec407a 100%); }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.75);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            max-width: 950px;
+            width: 100%;
+            margin: 50px auto;
+            position: relative;
+            animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 35px 40px;
+            background: linear-gradient(135deg, #2d7738 0%, #4caf50 100%);
+            color: white;
+            border-radius: 24px 24px 0 0;
+            position: relative;
+        }
+
+        .modal-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            font-size: 2.2em;
+            cursor: pointer;
+            color: white;
+            background: rgba(255,255,255,0.2);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-weight: 300;
+        }
+
+        .close-modal:hover {
+            background: rgba(255,255,255,0.3);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .modal-body {
+            padding: 45px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .modal-body::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .modal-body::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb {
+            background: #4caf50;
+            border-radius: 10px;
+        }
+
+        .modal-body h3 {
+            color: #2d7738;
+            font-size: 1.7em;
+            margin-top: 35px;
+            margin-bottom: 18px;
+            border-bottom: 3px solid #4caf50;
+            padding-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .modal-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .modal-body h4 {
+            color: #1976d2;
+            font-size: 1.25em;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .modal-body p {
+            line-height: 1.9;
+            color: #4a5568;
+            margin-bottom: 18px;
+            font-weight: 300;
+        }
+
+        .modal-body ul {
+            margin: 18px 0 18px 25px;
+        }
+
+        .modal-body li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+            color: #4a5568;
+            font-weight: 300;
+        }
+
+        .scripture {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffe082 100%);
+            padding: 28px;
+            border-radius: 16px;
+            margin: 28px 0;
+            border-left: 6px solid #ffa000;
+            font-style: italic;
+            color: #5d4037;
+        }
+
+        .scripture strong {
+            color: #e65100;
+            font-style: normal;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 1.15em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        table th {
+            background: #4caf50;
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table th.walmart { background: #2196f3; }
+        table th.kroger { background: #e91e63; }
+
+        table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        table tr:hover {
+            background-color: #f7fafc;
+        }
+
+        .recipe-card, .meal-day, .avoid-card, .exercise-day {
+            background: #f8f9fa;
+            padding: 24px;
+            border-radius: 14px;
+            margin: 18px 0;
+            border-left: 5px solid #4caf50;
+        }
+
+        .recipe-card h4, .meal-day h4, .avoid-card h4, .exercise-day h4 {
+            color: #2d7738;
+            margin-bottom: 12px;
+            font-size: 1.35em;
+            font-weight: 600;
+        }
+
+        .meal-day {
+            border-left-color: #9c27b0;
+            background: #f3e5f5;
+        }
+
+        .meal-day h4 {
+            color: #7b1fa2;
+        }
+
+        .avoid-card {
+            background: #ffebee;
+            border-left-color: #f44336;
+        }
+
+        .avoid-card h4 {
+            color: #c62828;
+        }
+
+        .exercise-day {
+            background: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+
+        .nutrition, .recipe-meta {
+            background: #fff9c4;
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin-top: 12px;
+            font-weight: 500;
+            color: #f57f17;
+            font-size: 0.95em;
+        }
+
+        .recipe-meta {
+            background: #e3f2fd;
+            color: #1565c0;
+            margin-bottom: 18px;
+        }
+
+        .meal-type {
+            margin: 12px 0;
+        }
+
+        .meal-type strong {
+            color: #e91e63;
+            display: inline-block;
+            min-width: 115px;
+        }
+
+        .goal-list {
+            background: #e8f5e9;
+            padding: 24px;
+            border-radius: 14px;
+            margin: 18px 0;
+        }
+
+        .goal-list h3 {
+            color: #2d7738;
+            border: none;
+            margin-top: 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 28px;
+            border-radius: 14px;
+            margin: 25px 0;
+            border: 2px solid #2196f3;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #2d7738 0%, #388e3c 100%);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 80px;
+        }
+
+        .footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            margin-bottom: 12px;
+        }
+
+        .footer p {
+            font-size: 1.15em;
+            margin: 12px 0;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2em;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1em;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-body {
+                padding: 30px 25px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>The Power of Change</h1>
+            <p class="subtitle">Your Complete Health & Wellness Guide</p>
+            <div class="goal">🎯 Goal: Lose 33 Pounds & Transform Your Life in 2026</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="welcome-card">
+            <h2>Welcome to Your Health Journey! 🌱</h2>
+            <p>
+                This is more than just a diet plan—it's a complete lifestyle transformation guided by faith, 
+                discipline, and intentional choices. Each card below contains the tools, recipes, exercises, 
+                and spiritual motivation you need to achieve your goals. Click on any card to explore and begin 
+                your journey to a healthier, stronger you.
+            </p>
+        </div>
+
+        <div class="card-grid">
+            <div class="health-card card-spiritual" onclick="openModal('spiritual')">
+                <div class="card-header">
+                    <span class="card-icon">🙏</span>
+                    <h3>Spiritual Motivation</h3>
+                    <p>Find strength through faith</p>
+                </div>
+                <div class="card-body">
+                    <p>Draw inspiration from Scripture as you embark on this journey. Discover how 1 Corinthians 9:24-27 and Philippians 4:13 provide the spiritual foundation for your health transformation.</p>
+                    <button class="card-button">Read Scriptures</button>
+                </div>
+            </div>
+
+            <div class="health-card card-goals" onclick="openModal('goals')">
+                <div class="card-header">
+                    <span class="card-icon">🎯</span>
+                    <h3>Monthly Goals 2026</h3>
+                    <p>Track your progress</p>
+                </div>
+                <div class="card-body">
+                    <p>Set achievable monthly targets for weight loss, nutrition, and exercise. Lose 2-3 pounds per month sustainably while building healthy habits that last.</p>
+                    <button class="card-button">View Goals</button>
+                </div>
+            </div>
+
+            <div class="health-card card-food" onclick="openModal('food')">
+                <div class="card-header">
+                    <span class="card-icon">🥗</span>
+                    <h3>Healthy Food Choices</h3>
+                    <p>Nourish your body</p>
+                </div>
+                <div class="card-body">
+                    <p>Explore comprehensive food group guidelines including vegetables, fruits, lean proteins, whole grains, and healthy fats. Learn what to eat and how much.</p>
+                    <button class="card-button">Explore Foods</button>
+                </div>
+            </div>
+
+            <div class="health-card card-shopping" onclick="openModal('shopping')">
+                <div class="card-header">
+                    <span class="card-icon">🛒</span>
+                    <h3>Shopping Guide</h3>
+                    <p>Walmart vs Kroger</p>
+                </div>
+                <div class="card-body">
+                    <p>Compare prices and find the best deals on healthy foods at Walmart and Kroger. Budget-friendly shopping made easy with detailed price comparisons.</p>
+                    <button class="card-button">Compare Prices</button>
+                </div>
+            </div>
+
+            <div class="health-card card-recipes" onclick="openModal('recipes')">
+                <div class="card-header">
+                    <span class="card-icon">👨‍🍳</span>
+                    <h3>Healthy Recipes</h3>
+                    <p>Delicious & nutritious</p>
+                </div>
+                <div class="card-body">
+                    <p>Master 4 essential recipes including Grilled Chicken Bowl, Mediterranean Salmon, Turkey Chili, and Greek Yogurt Parfait. Complete with nutrition info.</p>
+                    <button class="card-button">Get Recipes</button>
+                </div>
+            </div>
+
+            <div class="health-card card-meal-plan" onclick="openModal('mealplan')">
+                <div class="card-header">
+                    <span class="card-icon">📅</span>
+                    <h3>7-Day Meal Plan</h3>
+                    <p>Weekly meal blueprint</p>
+                </div>
+                <div class="card-body">
+                    <p>Follow a complete week of balanced meals designed for weight loss. Every breakfast, lunch, dinner, and snack planned for 1,500-1,800 calories daily.</p>
+                    <button class="card-button">View Meal Plan</button>
+                </div>
+            </div>
+
+            <div class="health-card card-avoid" onclick="openModal('avoid')">
+                <div class="card-header">
+                    <span class="card-icon">⚠️</span>
+                    <h3>Foods to Avoid</h3>
+                    <p>Know your obstacles</p>
+                </div>
+                <div class="card-body">
+                    <p>Identify and eliminate 9 categories of foods that sabotage weight loss. Understand why these foods hinder your progress and what to choose instead.</p>
+                    <button class="card-button">Learn More</button>
+                </div>
+            </div>
+
+            <div class="health-card card-exercise" onclick="openModal('exercise')">
+                <div class="card-header">
+                    <span class="card-icon">💪</span>
+                    <h3>Exercise Plan</h3>
+                    <p>Build strength & burn fat</p>
+                </div>
+                <div class="card-body">
+                    <p>Follow a complete weekly exercise program combining cardio, strength training, and targeted core work. Special focus on belly fat reduction.</p>
+                    <button class="card-button">Start Training</button>
+                </div>
+            </div>
+
+            <div class="health-card card-journey" onclick="openModal('journey')">
+                <div class="card-header">
+                    <span class="card-icon">🌟</span>
+                    <h3>Your Journey</h3>
+                    <p>Begin your transformation</p>
+                </div>
+                <div class="card-body">
+                    <p>Read inspiring words of encouragement and practical tips for success. Remember: you can do all things through Christ who strengthens you.</p>
+                    <button class="card-button">Get Inspired</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Section Title</h2>
+                <span class="close-modal" onclick="closeModal()">×</span>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3>The Power of Change</h3>
+        <p>Your 2026 Journey to Health & Wellness</p>
+        <p style="margin-top: 25px; font-style: italic;">
+            "I can do all things through Christ who strengthens me." - Philippians 4:13
+        </p>
+    </div>
+
+    <script>
+        // Content will be loaded separately for file size
+    </script>
+</body>
+</html>
+<script>
+const allContent = {
+    spiritual: {
+        title: '🙏 Spiritual Motivation',
+        body: `<div class="scripture"><strong>1 Corinthians 9:24-27 (NKJV)</strong><p style="margin-top: 10px; line-height: 1.9;">"Do you not know that those who run in a race all run, but one receives the prize? Run in such a way that you may obtain it. And everyone who competes for the prize is temperate in all things. Now they do it to obtain a perishable crown, but we for an imperishable crown. Therefore I run thus: not with uncertainty. Thus I fight: not as one who beats the air. But I discipline my body and bring it into subjection, lest, when I have preached to others, I myself should become disqualified."</p></div><h4>Paraphrase & Application:</h4><p>Just as athletes train with discipline and purpose to win a race, you too must approach your health journey with intention and self-control. The apostle Paul reminds us that while athletes compete for temporary rewards, we strive for eternal benefits. Your journey to lose 33 pounds and gain better health is not aimless—it requires dedication, planning, and bringing your body under control. Every healthy meal choice, every workout, and every moment you resist temptation is like training for a great prize. Don't give up halfway; discipline yourself daily so that you can achieve the victory of better health and honor God with your body.</p><div class="scripture" style="margin-top: 30px;"><strong>Philippians 4:13 (NKJV)</strong><p style="margin-top: 10px; line-height: 1.9;">"I can do all things through Christ who strengthens me."</p></div><h4>Paraphrase & Application:</h4><p>This powerful verse reminds you that you are not alone in your journey. When you feel weak, tired, or tempted to quit, remember that Christ gives you the strength to persevere. Whether it's choosing a salad over fast food, completing that workout when you're exhausted, or staying committed when progress feels slow, His strength is available to you. You have divine power working in you to accomplish your health goals. Lean on Him daily, and you will find the courage and endurance to make lasting changes.</p>`
+    },
+    goals: {
+        title: '🎯 Monthly Goals for 2026',
+        body: `<div class="goal-list"><h3>Weight Loss Target:</h3><ul><li>Lose 2-3 pounds per month for sustainable, healthy weight loss</li><li>Total goal: 33 pounds over 11-12 months</li><li>Focus on losing body fat while building muscle mass</li></ul></div><div class="goal-list"><h3>Healthy Eating Goals:</h3><ul><li>Eat 5-6 servings of vegetables daily</li><li>Drink at least 64 oz of water per day</li><li>Prepare meals at home 5-6 days per week</li><li>Limit processed foods and added sugars</li><li>Practice portion control at every meal</li></ul></div><div class="goal-list"><h3>Exercise Goals:</h3><ul><li>Complete 4-5 cardio sessions per week (30-45 minutes each)</li><li>Strength training 3-4 times per week (focus on major muscle groups)</li><li>Core exercises daily (15-20 minutes targeting belly fat)</li><li>Take 10,000 steps daily</li><li>Include 2-3 rest or active recovery days per week</li></ul></div>`
+    },
+    food: {
+        title: '🥗 Healthy Food Choices by Food Group',
+        body: `<h3>Vegetables (5-6 servings daily)</h3><ul><li><strong>Leafy greens:</strong> spinach, kale, romaine lettuce, arugula</li><li><strong>Cruciferous:</strong> broccoli, cauliflower, Brussels sprouts, cabbage</li><li><strong>Colorful veggies:</strong> bell peppers, tomatoes, carrots, zucchini</li><li><strong>Root vegetables:</strong> sweet potatoes, beets, turnips</li></ul><h3>Fruits (2-3 servings daily)</h3><ul><li><strong>Berries:</strong> blueberries, strawberries, raspberries, blackberries</li><li><strong>Citrus:</strong> oranges, grapefruits, lemons</li><li>Apples, pears, peaches</li><li>Bananas (in moderation)</li></ul><h3>Lean Proteins (4-6 oz per meal)</h3><ul><li>Chicken breast (skinless), turkey breast</li><li><strong>Fish:</strong> salmon, tuna, tilapia, cod</li><li>Eggs and egg whites</li><li>Greek yogurt (plain, non-fat or low-fat)</li><li>Lean beef (95% lean), pork tenderloin</li><li><strong>Plant proteins:</strong> tofu, tempeh, edamame, beans, lentils</li></ul><h3>Whole Grains (1/2 cup to 1 cup per meal)</h3><ul><li>Brown rice, quinoa, wild rice</li><li>Oatmeal (steel-cut or old-fashioned oats)</li><li>Whole wheat bread and pasta</li><li>Barley, bulgur, farro</li></ul><h3>Healthy Fats (in moderation)</h3><ul><li>Avocados (1/4 to 1/2 per day)</li><li><strong>Nuts:</strong> almonds, walnuts, cashews (1 oz serving)</li><li><strong>Seeds:</strong> chia, flax, pumpkin seeds</li><li>Olive oil, avocado oil (1-2 tablespoons)</li><li>Natural nut butters (1-2 tablespoons)</li></ul><h3>Dairy & Alternatives (2-3 servings daily)</h3><ul><li>Low-fat or non-fat milk, Greek yogurt</li><li>Cottage cheese (low-fat)</li><li>Unsweetened almond milk, oat milk, soy milk</li><li>Cheese (in moderation, 1 oz portions)</li></ul>`
+    },
+    shopping: {
+        title: '🛒 Grocery Shopping Guide: Walmart vs Kroger',
+        body: `<p>Use this comparison to find the best deals on healthy foods. Prices are approximate and may vary by location.</p><h3>Fresh Vegetables</h3><table><thead><tr><th>Item</th><th class="walmart">Walmart</th><th class="kroger">Kroger</th></tr></thead><tbody><tr><td>Spinach (1 lb bag)</td><td>$2.98</td><td>$3.29</td></tr><tr><td>Broccoli (per lb)</td><td>$1.48</td><td>$1.79</td></tr><tr><td>Bell Peppers (3-pack)</td><td>$3.47</td><td>$3.99</td></tr><tr><td>Carrots (2 lb bag)</td><td>$1.98</td><td>$2.29</td></tr><tr><td>Sweet Potatoes (per lb)</td><td>$0.88</td><td>$0.99</td></tr><tr><td>Cauliflower (per head)</td><td>$2.98</td><td>$3.49</td></tr></tbody></table><h3>Fresh Fruits</h3><table><thead><tr><th>Item</th><th class="walmart">Walmart</th><th class="kroger">Kroger</th></tr></thead><tbody><tr><td>Bananas (per lb)</td><td>$0.58</td><td>$0.64</td></tr><tr><td>Apples (3 lb bag)</td><td>$3.98</td><td>$4.49</td></tr><tr><td>Strawberries (1 lb)</td><td>$3.48</td><td>$3.99</td></tr><tr><td>Blueberries (6 oz)</td><td>$2.98</td><td>$3.29</td></tr><tr><td>Oranges (4 lb bag)</td><td>$4.68</td><td>$4.99</td></tr></tbody></table><h3>Lean Proteins</h3><table><thead><tr><th>Item</th><th class="walmart">Walmart</th><th class="kroger">Kroger</th></tr></thead><tbody><tr><td>Chicken Breast (per lb)</td><td>$3.28</td><td>$3.49</td></tr><tr><td>Ground Turkey (per lb)</td><td>$4.48</td><td>$4.79</td></tr><tr><td>Salmon Fillets (per lb)</td><td>$9.98</td><td>$10.99</td></tr><tr><td>Eggs (12 count)</td><td>$3.48</td><td>$3.79</td></tr><tr><td>Greek Yogurt (32 oz)</td><td>$4.98</td><td>$5.49</td></tr><tr><td>Canned Tuna (5 oz)</td><td>$0.98</td><td>$1.29</td></tr></tbody></table><h3>Whole Grains & Pantry Staples</h3><table><thead><tr><th>Item</th><th class="walmart">Walmart</th><th class="kroger">Kroger</th></tr></thead><tbody><tr><td>Brown Rice (2 lb)</td><td>$2.48</td><td>$2.79</td></tr><tr><td>Quinoa (12 oz)</td><td>$3.98</td><td>$4.49</td></tr><tr><td>Oatmeal (42 oz)</td><td>$4.48</td><td>$4.99</td></tr><tr><td>Whole Wheat Bread (20 oz)</td><td>$2.48</td><td>$2.79</td></tr><tr><td>Black Beans (15 oz can)</td><td>$0.88</td><td>$0.99</td></tr><tr><td>Almonds (16 oz)</td><td>$7.98</td><td>$8.49</td></tr></tbody></table>`
+    },
+    recipes: {
+        title: '👨‍🍳 Healthy Recipes for Weight Loss',
+        body: `<div class="recipe-card"><h4>Grilled Chicken & Vegetable Bowl</h4><div class="recipe-meta">Prep: 10 min | Cook: 20 min | Serves: 4</div><strong>Ingredients:</strong><ul><li>1 lb boneless, skinless chicken breast</li><li>2 cups broccoli florets</li><li>1 cup quinoa</li><li>1 red bell pepper, sliced</li><li>2 tablespoons olive oil</li><li>Garlic, lemon juice, salt, and pepper to taste</li></ul><strong>Instructions:</strong><p>Cook quinoa according to package directions. Season chicken with salt, pepper, and garlic. Grill 6-7 minutes per side until fully cooked. Steam broccoli for 5 minutes. Sauté peppers in 1 tbsp olive oil for 3-4 minutes. Slice chicken and divide among four bowls. Add quinoa, broccoli, and peppers. Drizzle with remaining olive oil and lemon juice.</p><div class="nutrition">Nutrition: 350 cal, 35g protein, 30g carbs, 10g fat</div></div><div class="recipe-card"><h4>Mediterranean Salmon with Roasted Vegetables</h4><div class="recipe-meta">Prep: 10 min | Cook: 25 min | Serves: 4</div><strong>Ingredients:</strong><ul><li>4 salmon fillets (6 oz each)</li><li>2 zucchini, sliced</li><li>1 cup cherry tomatoes</li><li>1 red onion, sliced</li><li>3 tablespoons olive oil</li><li>2 cloves garlic, minced</li><li>Fresh herbs, lemon, salt, and pepper</li></ul><strong>Instructions:</strong><p>Preheat oven to 400°F. Toss zucchini, tomatoes, and onion with 2 tbsp olive oil, garlic, salt, and pepper. Roast for 20 minutes. Season salmon with herbs. Heat remaining oil in skillet and sear salmon 4-5 minutes per side. Serve salmon over roasted vegetables with lemon wedges.</p><div class="nutrition">Nutrition: 420 cal, 40g protein, 12g carbs, 24g fat</div></div><div class="recipe-card"><h4>Turkey & Black Bean Chili</h4><div class="recipe-meta">Prep: 15 min | Cook: 30 min | Serves: 6</div><strong>Ingredients:</strong><ul><li>1 lb ground turkey (93% lean)</li><li>2 cans (15 oz) black beans, drained</li><li>1 can (28 oz) crushed tomatoes</li><li>1 onion, diced</li><li>1 bell pepper, diced</li><li>2 cloves garlic, minced</li><li>2 tbsp chili powder, 1 tsp cumin</li><li>Salt and pepper to taste</li></ul><strong>Instructions:</strong><p>Brown turkey in large pot over medium heat. Add onion, pepper, and garlic. Cook 5 minutes until soft. Stir in chili powder and cumin. Add beans and tomatoes. Bring to boil, reduce heat and simmer 20 minutes. Season with salt and pepper. Serve with Greek yogurt dollop.</p><div class="nutrition">Nutrition: 280 cal, 25g protein, 32g carbs, 6g fat</div></div><div class="recipe-card"><h4>Greek Yogurt Breakfast Parfait</h4><div class="recipe-meta">Prep: 5 min | Serves: 1</div><strong>Ingredients:</strong><ul><li>1 cup plain non-fat Greek yogurt</li><li>1/2 cup fresh berries</li><li>1/4 cup low-sugar granola</li><li>1 tablespoon chia seeds</li><li>Drizzle of honey (optional)</li></ul><strong>Instructions:</strong><p>Layer Greek yogurt, berries, and granola in a glass or bowl. Sprinkle chia seeds on top. Add small honey drizzle if desired. Enjoy immediately for protein-packed breakfast.</p><div class="nutrition">Nutrition: 300 cal, 25g protein, 38g carbs, 5g fat</div></div>`
+    },
+    mealplan: {
+        title: '📅 7-Day Meal Plan',
+        body: `<p>This meal plan provides balanced nutrition for sustainable weight loss. Each day includes approximately 1,500-1,800 calories.</p><div class="meal-day"><h4>Day 1: Monday</h4><div class="meal-type"><strong>Breakfast:</strong> Greek yogurt parfait with berries and granola</div><div class="meal-type"><strong>Lunch:</strong> Grilled chicken salad with mixed greens, tomatoes, cucumber, balsamic vinaigrette</div><div class="meal-type"><strong>Dinner:</strong> Mediterranean salmon with roasted vegetables</div><div class="meal-type"><strong>Snacks:</strong> Apple slices with almond butter, baby carrots with hummus</div></div><div class="meal-day"><h4>Day 2: Tuesday</h4><div class="meal-type"><strong>Breakfast:</strong> Scrambled eggs with spinach and whole wheat toast</div><div class="meal-type"><strong>Lunch:</strong> Turkey and black bean chili with side salad</div><div class="meal-type"><strong>Dinner:</strong> Grilled chicken and vegetable bowl with quinoa</div><div class="meal-type"><strong>Snacks:</strong> Orange, handful of almonds</div></div><div class="meal-day"><h4>Day 3: Wednesday</h4><div class="meal-type"><strong>Breakfast:</strong> Oatmeal with banana, chia seeds, and cinnamon</div><div class="meal-type"><strong>Lunch:</strong> Tuna salad on whole wheat bread with lettuce, tomato, raw veggies</div><div class="meal-type"><strong>Dinner:</strong> Baked tilapia with roasted sweet potato and steamed broccoli</div><div class="meal-type"><strong>Snacks:</strong> Greek yogurt, celery with peanut butter</div></div><div class="meal-day"><h4>Day 4: Thursday</h4><div class="meal-type"><strong>Breakfast:</strong> Smoothie with spinach, banana, protein powder, almond milk</div><div class="meal-type"><strong>Lunch:</strong> Grilled chicken wrap with whole wheat tortilla, hummus, lettuce, veggies</div><div class="meal-type"><strong>Dinner:</strong> Lean beef stir-fry with bell peppers, snap peas, brown rice</div><div class="meal-type"><strong>Snacks:</strong> Berries, string cheese</div></div><div class="meal-day"><h4>Day 5: Friday</h4><div class="meal-type"><strong>Breakfast:</strong> Veggie omelet with mushrooms, peppers, onions, fruit side</div><div class="meal-type"><strong>Lunch:</strong> Quinoa bowl with black beans, corn, avocado, salsa</div><div class="meal-type"><strong>Dinner:</strong> Grilled turkey burger (no bun) with sweet potato fries and salad</div><div class="meal-type"><strong>Snacks:</strong> Bell pepper with guacamole, pear</div></div><div class="meal-day"><h4>Day 6: Saturday</h4><div class="meal-type"><strong>Breakfast:</strong> Whole grain pancakes with fresh berries and maple syrup drizzle</div><div class="meal-type"><strong>Lunch:</strong> Mediterranean chickpea salad with feta, olives, cucumbers, tomatoes</div><div class="meal-type"><strong>Dinner:</strong> Baked chicken breast with roasted Brussels sprouts and wild rice</div><div class="meal-type"><strong>Snacks:</strong> Trail mix (small portion), Greek yogurt</div></div><div class="meal-day"><h4>Day 7: Sunday</h4><div class="meal-type"><strong>Breakfast:</strong> Greek yogurt parfait with granola and mixed berries</div><div class="meal-type"><strong>Lunch:</strong> Grilled chicken Caesar salad (light dressing) with whole grain crackers</div><div class="meal-type"><strong>Dinner:</strong> Shrimp and vegetable stir-fry with cauliflower rice</div><div class="meal-type"><strong>Snacks:</strong> Apple, cottage cheese with cucumber slices</div></div>`
+    },
+    avoid: {
+        title: '⚠️ Foods to Avoid for Weight Loss',
+        body: `<p>To achieve your weight loss goals, limit or avoid these foods that sabotage your progress.</p><div class="avoid-card"><h4>Sugary Beverages</h4><ul><li>Soda, sweet tea, energy drinks, fruit juices with added sugar</li></ul><strong>Why avoid:</strong><p>Empty calories and sugar cause blood sugar spikes and crashes, leading to increased hunger and fat storage. No satiety means hundreds of extra calories without feeling full.</p></div><div class="avoid-card"><h4>Processed Snacks & Chips</h4><ul><li>Potato chips, tortilla chips, cheese puffs, pretzels</li></ul><strong>Why avoid:</strong><p>High in calories, unhealthy fats, and sodium. Designed to be addictive. Lack protein and fiber, leaving you hungry shortly after.</p></div><div class="avoid-card"><h4>Fast Food & Fried Foods</h4><ul><li>Burgers, fries, fried chicken, pizza, onion rings</li></ul><strong>Why avoid:</strong><p>Extremely calorie-dense with a full day's calories in one meal. Trans and saturated fats promote inflammation and weight gain. High sodium causes water retention.</p></div><div class="avoid-card"><h4>Baked Goods & Pastries</h4><ul><li>Donuts, cookies, cakes, muffins, Danish, croissants</li></ul><strong>Why avoid:</strong><p>Refined flour, sugar, and unhealthy fats with minimal nutrition. Cause blood sugar spikes and crashes triggering more cravings. 300-500 calories with no protein or fiber.</p></div><div class="avoid-card"><h4>Candy & Sweets</h4><ul><li>Chocolate bars, gummy candies, hard candies, ice cream</li></ul><strong>Why avoid:</strong><p>Pure sugar with no nutritional benefits. Dramatic blood sugar spikes, fat storage, and intense sugar cravings. Ice cream combines sugar with saturated fat.</p></div><div class="avoid-card"><h4>White Bread & Refined Grains</h4><ul><li>White bread, white rice, regular pasta, white flour tortillas</li></ul><strong>Why avoid:</strong><p>Stripped of fiber and nutrients. Simple carbs digest quickly causing blood sugar spikes. Don't keep you full and lead to overeating.</p></div><div class="avoid-card"><h4>Processed Meats</h4><ul><li>Hot dogs, sausages, bacon, deli meats with nitrates</li></ul><strong>Why avoid:</strong><p>High in saturated fat, sodium, and preservatives. Calorie-dense with health risks. High sodium causes water retention masking fat loss.</p></div><div class="avoid-card"><h4>Alcohol</h4><ul><li>Beer, wine, cocktails, mixed drinks</li></ul><strong>Why avoid:</strong><p>Empty calories (7 cal/gram) that slow fat burning. Lowers inhibitions leading to poor food choices and overeating. Cocktails: 300-500 calories each.</p></div><div class="avoid-card"><h4>High-Sugar Condiments & Sauces</h4><ul><li>Ketchup, BBQ sauce, teriyaki sauce, sweet dressings</li></ul><strong>Why avoid:</strong><p>Add 100-200 calories and 15-30g sugar to healthy meals. High fructose corn syrup with no nutritional value. Use mustard, hot sauce, or vinegar instead.</p></div>`
+    },
+    exercise: {
+        title: '💪 Exercise Plan for Weight Loss & Muscle Gain',
+        body: `<p>Comprehensive plan combining cardio for fat burning, strength training for muscle, and targeted core work. Follow 5-6 days per week for best results.</p><h3>Weekly Exercise Schedule</h3><div class="exercise-day"><h4>Monday: Upper Body Strength + Core</h4><ul><li>Warm-up: 5 min light cardio</li><li>Push-ups: 3 sets × 10-15 reps</li><li>Dumbbell rows: 3 × 12 per arm</li><li>Shoulder press: 3 × 12</li><li>Bicep curls: 3 × 12</li><li>Tricep dips: 3 × 10-12</li><li>Core: Planks (3 × 30-60 sec), Russian twists (3 × 20)</li></ul></div><div class="exercise-day"><h4>Tuesday: Cardio + Abs</h4><ul><li>30-45 min moderate cardio (jog, bike, elliptical)</li><li>Bicycle crunches: 3 × 20</li><li>Leg raises: 3 × 15</li><li>Mountain climbers: 3 × 20</li></ul></div><div class="exercise-day"><h4>Wednesday: Lower Body Strength + Core</h4><ul><li>Warm-up: 5 min light cardio</li><li>Squats: 3 × 15</li><li>Lunges: 3 × 12 per leg</li><li>Deadlifts: 3 × 12</li><li>Calf raises: 3 × 15</li><li>Glute bridges: 3 × 15</li><li>Core: Side planks (3 × 30 sec/side), Dead bugs (3 × 12)</li></ul></div><div class="exercise-day"><h4>Thursday: HIIT</h4><ul><li>Warm-up: 5 min</li><li>20 min HIIT: 30 sec sprint + 30 sec rest (×20)</li><li>Cool-down: 5 min walk</li><li>Hollow body holds: 3 × 20-30 sec</li><li>V-ups: 3 × 12</li></ul></div><div class="exercise-day"><h4>Friday: Full Body Strength + Core</h4><ul><li>Warm-up: 5 min</li><li>Burpees: 3 × 10</li><li>Kettlebell swings: 3 × 15</li><li>Dumbbell thrusters: 3 × 12</li><li>Pull-ups: 3 × 8-10</li><li>Box jumps: 3 × 12</li><li>Core: Plank to downward dog (3 × 10), Flutter kicks (3 × 20)</li></ul></div><div class="exercise-day"><h4>Saturday: Steady Cardio + Abs</h4><ul><li>45-60 min moderate cardio (walk, jog, swim, bike)</li><li>Crunches: 3 × 20</li><li>Reverse crunches: 3 × 15</li><li>Plank variations: 3 × 45 sec</li></ul></div><div class="exercise-day"><h4>Sunday: Rest or Active Recovery</h4><ul><li>Light yoga, stretching, or 20-30 min leisurely walk</li></ul></div><h3>Targeted Belly Fat Reduction</h3><p>Strengthen core muscles daily with this 15-20 minute circuit:</p><div class="highlight-box"><h4>Daily Core Circuit:</h4><ul><li>Plank: 3 × 45-60 sec (overall core)</li><li>Russian twists: 3 × 30 (obliques)</li><li>Bicycle crunches: 3 × 20 (entire core)</li><li>Mountain climbers: 3 × 20 (cardio + core)</li><li>Leg raises: 3 × 15 (lower abs)</li><li>Dead bugs: 3 × 12 (deep core)</li><li>Flutter kicks: 3 × 20 (lower abs)</li><li>V-ups: 3 × 10 (full engagement)</li></ul></div><h3>Success Tips:</h3><ul><li>Focus on form over speed—quality prevents injury</li><li>Engage core throughout the day</li><li>Stay hydrated before, during, and after exercise</li><li>Get 7-8 hours sleep—poor sleep increases cortisol</li><li>Be patient—belly fat is often last to go</li><li>Track progress with measurements and photos</li><li>Manage stress through meditation, prayer, breathing</li></ul>`
+    },
+    journey: {
+        title: '🌟 Your Journey to Health Starts Now',
+        body: `<p>Congratulations on taking the first step toward a healthier you! This guide provides the tools, knowledge, and spiritual foundation you need to succeed. Remember, this is not just about losing 33 pounds—it's about transforming your lifestyle, honoring your body as a temple of God, and building habits that will serve you for a lifetime.</p><p>Every healthy meal you prepare, every workout you complete, and every unhealthy snack you resist is a victory. Don't be discouraged by setbacks or slow progress. Weight loss is not linear, and your body is adjusting to new patterns. Trust the process, lean on God's strength as promised in Philippians 4:13, and keep running your race with discipline as described in 1 Corinthians 9:24-27.</p><p>Use the meal plans and recipes as a foundation, but feel free to adjust them to your tastes and preferences. The grocery comparison chart will help you budget wisely and make smart choices at both Walmart and Kroger. Focus on whole, unprocessed foods, and remember that small, consistent changes lead to lasting results.</p><p>Your exercise plan is designed to build muscle, burn fat, and target your problem areas. Stay committed to the schedule, but also listen to your body. Rest when needed, and celebrate your increasing strength and endurance.</p><p>Above all, remember that you can do all things through Christ who strengthens you. He has equipped you with everything you need to succeed. Stay focused, stay faithful, and watch as God transforms your body, mind, and spirit throughout 2026 and beyond.</p><div class="highlight-box" style="text-align: center; margin-top: 40px; background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-color: #4caf50;"><h3 style="color: #2d7738; font-size: 2.2em; margin-bottom: 15px; border: none; font-family: 'Playfair Display', serif;">You've got this! 💚</h3><p style="font-size: 1.3em; font-style: italic; color: #1b5e20; margin: 0;">Let The Power of Change begin today.</p></div>`
+    }
+};
+
+function openModal(section) {
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+    
+    modalTitle.innerHTML = allContent[section].title;
+    modalBody.innerHTML = allContent[section].body;
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+});
+</script>
+</body>
+</html>
